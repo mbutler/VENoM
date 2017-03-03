@@ -1,0 +1,20 @@
+{
+  "name": "yf-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.0",        
+    "express": "^4.15.0",
+    "express-vue": "^3.9.0",
+    "mongodb": "^2.2.24",
+    "path": "^0.12.7",
+    "vue": "^2.2.1",
+    "vue-resource": "^1.2.1"
+  }
+}
