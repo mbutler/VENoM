@@ -1,7 +1,6 @@
 // https://github.com/danmademe/express-vue-super-simple
 // https://zellwk.com/blog/crud-express-mongodb/
 
-
 const path = require('path')
 const express = require('express')
 const bodyParser= require('body-parser')
@@ -16,10 +15,10 @@ app.set('views', path.join(__dirname, '/views'))
 app.set('vue', {
     componentsDir: path.join(__dirname, '/views/components'),
     defaultLayout: 'layout'
-});
+})
 
-//using mLab here for cloud-hosted mongoDB
-MongoClient.connect('mongodb://<USERNAME>:<PASSWORD>@ds113670.mlab.com:13670/<DATABASE-NAME>', (err, database) => {
+//using mLab here for cloud-hosted mongoDB. Create a quotes and a users collection
+MongoClient.connect('<MONGODB-URI>', (err, database) => {
   if (err) return console.log(err)
   db = database
   app.listen(3000, () => {
@@ -67,8 +66,8 @@ app.get('/users/:userName', (req, res) => {
   //var result = users
   var cursor = db.collection('users').find().toArray((err, result) => {
     
-    var user = result.filter(function(item) {
-          return item.name === req.params.userName;
+    var user = result.filter((item) => {
+          return item.name === req.params.userName
       })[0]
     
     res.render('user', {
